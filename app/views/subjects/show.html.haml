@@ -1,9 +1,9 @@
 .wrapper_with_padding
 	%h1 THESE ARE THE DETAILS.
-	#note_show
+	#subject_show
 		%h1.name= @subject.name
-		%p= @subject.lecturer
-		%p= @subject.subject_code
+		%p= simple_format(@subject.lecturer)
+		%p= simple_format(@subject.subject_code)
 
 		.buttons
 			= link_to "Edit", edit_subject_path(@subject), class: "button"
