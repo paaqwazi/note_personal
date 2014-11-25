@@ -1,0 +1,10 @@
+.wrapper_with_padding
+	%h1 THESE ARE THE DETAILS.
+	#note_show
+		%h1.name= @subject.name
+		%p= @subject.lecturer
+		%p= @subject.subject_code
+
+		.buttons
+			= link_to "Edit", edit_subject_path(@subject), class: "button"
+			= link_to "Delete", subject_path(@subject), method: :delete, data: { confirm: "Are you sure?" }, class: "button"

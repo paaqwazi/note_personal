@@ -1,0 +1,13 @@
+.wrapper_with_padding
+	#subjects.clearfix
+		- unless @subjects.blank?
+			- @subjects.each do |subject|
+				%a{ href: (url_for [subject])}
+					.subject
+						%p.name= subject.name
+						%p.lecturer=subject.lecturer
+						%p.subject_code=subject.subject_code
+		- else
+			%h2 Add a Subject
+			%p It appears you haven't created any notes yet... Lets fix that. Why don't you go ahead and create a new note.
+			%button= link_to "New Subject", new_subject_path

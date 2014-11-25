@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OnlineExamination</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+       <header>
+          <div class="header_inner">
+            <%= link_to image_tag('logo.svg'), root_path, id: "logo" %>
+            <nav>
+             <% if admin_signed_in? %>
+            <%= link_to "NEW SUBJECT", new_subject_path %>
+            <%=link_to "SIGN OUT", destroy_admin_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "LOG IN", new_admin_session_path %>
+              <% end %>
+            </nav>
+          </div>
+       </header>
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+
+<%= yield %>
+
+</body>
+</html>
