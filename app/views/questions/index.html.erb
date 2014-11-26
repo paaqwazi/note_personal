@@ -8,7 +8,6 @@
     <tr>
        <th><%= model_class.human_attribute_name(:question_id) %></th>
       <th><%= model_class.human_attribute_name(:question_text) %></th>
-      <th><%= model_class.human_attribute_name(:created_at) %></th>
       <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
@@ -17,7 +16,6 @@
       <tr>
         <td><%= question.question_id %></td>
         <td><%= question.question_text %></td>
-        <td><%=l question.created_at %></td>
         <td>
           <%= link_to t('.edit', :default => t("helpers.links.edit")),
                       edit_question_path(question), :class => 'btn btn-default btn-xs' %>
