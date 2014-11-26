@@ -13,7 +13,9 @@
             <%= link_to image_tag('logo.svg'), root_path, id: "logo" %>
             <nav>
              <% if admin_signed_in? %>
+             Lgged in as: <strong><%= current_admin.email %></strong>
             <%= link_to "NEW SUBJECT", new_subject_path %>
+            <%= link_to "EDIT PROFILE", edit_admin_registration_path %>
             <%=link_to "SIGN OUT", destroy_admin_session_path, method: :delete %>
             <% else %>
               <%= link_to "LOG IN", new_admin_session_path %>

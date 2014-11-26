@@ -16,4 +16,11 @@
 @import 'normalize';
 @import 'global.css.scss';
 @import 'subjects.css.scss';
+@import 'questions.css.scss';
 @import 'welcome.css.scss';
+
+
+.page-header{
+	color:green;
+	font-size: 1.25rem;
+}
