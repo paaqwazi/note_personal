@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
   devise_for :admins
   get 'welcome/index'
-  resources :subjects
-  resources :questions
+  resources :subjects do
+    resources :questions
+  end
 
   authenticated :admin do
     root 'subjects#index', as: "authenticated_root"

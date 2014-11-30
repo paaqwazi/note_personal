@@ -2,7 +2,7 @@
 	#subjects.clearfix
 		- unless @subjects.blank?
 			- @subjects.each do |subject|
-				%a{ href: (url_for [subject])}
+				%a{ href: (subject_questions_path(subject))}
 					.subject
 						%p.name= subject.name
 						%p.lecturer=subject.lecturer

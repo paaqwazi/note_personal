@@ -1,9 +1,16 @@
 class QuestionsController < ApplicationController
+	before_action :set_subject, only: [:create, :edit, :new, :index, :destroy]
 	before_action :set_question, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_admin!
 
 	def index
-		@questions = Question.all
+		@questions = Question.where(subject_id: @subject.id)
+		@questions.sort {|a,b| a.question_text <=> b.question_text}
+
+		respond_to do |format| 
+			format.html
+			
+		end
 	end
 
 	def show
@@ -13,20 +20,25 @@ class QuestionsController < ApplicationController
 	end
 
 	def new
-		@question = Question.new
+		@question = @subject.questions.build
 	end
+
 	def create
-		@question = Question.new(question_params)
+		@question = @subject.questions.new(question_params)
 		if @question.save
-			redirect_to @question
+
+			redirect_to subject_questions_path
 		else
 			render :new
 		end
 	end
 
+	def edit
+	end
+
 	def update
 		if @question.update(question_params)
-			redirect_to @question
+			redirect_to subject_questions_path
 		else
 			render :edit
 		end
@@ -34,7 +46,7 @@ class QuestionsController < ApplicationController
 
 	def destroy
 		@question.destroy
-		redirect_to questions_url
+		redirect_to subject_questions_path
 	end
 
 	private
@@ -43,8 +55,12 @@ class QuestionsController < ApplicationController
 		@question = Question.find(params[:id])
 	end
 
+	def set_subject
+		@subject = Subject.find(params[:subject_id])
+	end
+
 	def question_params
-		params.require(:question).permit(:question_id, :question_text)
+		params.require(:question).permit(:question_text)
 	end
 
 end

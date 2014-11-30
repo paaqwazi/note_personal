@@ -1,5 +1,5 @@
-<%= simple_form_for @question do |f| %>
-  <%= f.input :question_id, label: 'Question:' %>
+<%= simple_form_for [@subject, @question] do |f| %>
+
   <%= f.input :question_text, label: 'Text:' %>
   <%= f.button :submit %>
   <% end %>
