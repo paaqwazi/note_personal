@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :answers
+
   devise_for :admins
   get 'welcome/index'
   resources :subjects do

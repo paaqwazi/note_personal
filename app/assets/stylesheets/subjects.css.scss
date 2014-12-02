@@ -1,3 +1,13 @@
+$light_blue: #5CBAF7;
+$light_gray: #C0C1C1;
+$black: #000;
+
+@mixin bold_font {
+	font-family: "Brandon Grotesque","Helvetica Neue", Helvetica, sans-serif;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
 #subjects {
 	.subject {
 		background: $light_gray;

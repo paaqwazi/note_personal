@@ -4,6 +4,7 @@ gem 'devise'
 gem 'simple_form'
 gem 'haml'
 
+
 gem 'pry'
 gem 'pry-byebug'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

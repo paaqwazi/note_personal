@@ -27,7 +27,7 @@ class QuestionsController < ApplicationController
 		@question = @subject.questions.new(question_params)
 		if @question.save
 
-			redirect_to subject_questions_path
+			redirect_to "/answers/new?q=#{@question.id}"
 		else
 			render :new
 		end
